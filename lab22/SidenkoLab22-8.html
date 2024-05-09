@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+</head>
+<body>
+    <h2>Простий калькулятор</h2>
+    <p>Введіть два числа та виберіть операцію:</p>
+
+    <input type="number" id="num1" placeholder="Перше число">
+    <input type="number" id="num2" placeholder="Друге число">
+    <br><br>
+
+    <select id="operation">
+        <option value="Add">Додавання</option>
+        <option value="Sub">Віднімання</option>
+        <option value="Mul">Множення</option>
+        <option value="Div">Ділення</option>
+    </select>
+    <br><br>
+
+    <button onclick="calculate()">Обчислити</button>
+
+    <script>
+        function Add(a, b) {
+            console.log("Результат додавання:", a + b);
+        }
+
+        function Sub(a, b) {
+            console.log("Результат віднімання:", a - b);
+        }
+
+        function Mul(a, b) {
+            console.log("Результат множення:", a * b);
+        }
+
+        function Div(a, b) {
+            if (b === 0) {
+                console.log("Помилка: ділення на нуль!");
+            } else {
+                console.log("Результат ділення:", a / b);
+            }
+        }
+
+        function calculate() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let operation = document.getElementById("operation").value;
+
+            switch (operation) {
+                case "Add":
+                    Add(num1, num2);
+                    break;
+                case "Sub":
+                    Sub(num1, num2);
+                    break;
+                case "Mul":
+                    Mul(num1, num2);
+                    break;
+                case "Div":
+                    Div(num1, num2);
+                    break;
+                default:
+                    console.log("Невірний вибір операції!");
+            }
+        }
+    </script>
+</body>
+</html>
